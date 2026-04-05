@@ -1,1 +1,5 @@
 .claude/
+
+# Source PNG masters for slide backgrounds — only the optimized .webp files
+# (produced by scripts/optimize_images.py) are committed and served.
+img/*.png
