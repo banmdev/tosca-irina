@@ -18,7 +18,7 @@ The page is a vertical feed of 12 full-viewport `.slide` sections with `scroll-s
 
 Each slide uses a full-bleed `background-image` (`img/01-hero.jpg` through `img/12-signoff.jpg`) with a dark top+bottom scrim gradient via `.slide::before` for text legibility, and a bottom-anchored `.slide-inner` containing cream-colored typography with `text-shadow`. A small TikTok-style `01 / 12` counter is injected top-right of each slide by JS. The `card-header` (avatar + label) is absolutely positioned top-left of each slide like an Instagram story header.
 
-The 12 background images are not yet generated. Prompts for creating them with Nano Banana 2 (or any modern image generator) live in `IMAGE_PROMPTS.md`. Until the images exist, each slide falls back to a palette-matching linear-gradient defined alongside the image URL in the `background-image` shorthand, so the site stays presentable.
+The 12 background images are generated with Nano Banana 2 — prompts live in `IMAGE_PROMPTS.md`. Workflow: generate PNG → drop into `img/` → run `python scripts/optimize_images.py` which produces optimized `.webp` (1080×1920 max, quality 82, method 6) alongside the source → commit `img/*.webp`. The HTML references the `.webp` files, not the PNG sources. Typical compression is ~3 % of the original PNG (~1.8 MB → ~60 KB). Until all 12 images exist, each slide falls back to a palette-matching linear-gradient defined alongside the image URL in the `background-image` shorthand, so the site stays presentable.
 
 ## Architecture
 

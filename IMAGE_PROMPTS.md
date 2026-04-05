@@ -121,7 +121,13 @@ text overlay. No text, no logos, no visible human faces. Ultra-detailed, 4K.
 2. If the first pass is inconsistent in style, feed image 01 as a style
    reference image to Nano Banana for 02–12 (Gemini Flash Image supports
    style reference via attached images).
-3. Resize/crop to 1080×1920 if needed.
-4. Save to `img/` with the exact filenames listed above.
-5. `git add img/ && git commit && git push` — GitHub Pages redeploys in
-   ~1 minute and the slides pick up the new backgrounds automatically.
+3. Save to `img/` with the exact PNG filenames listed above.
+4. Run the optimizer to produce WebP versions (the HTML references `.webp`,
+   not the source PNGs — typical compression: 1.8 MB PNG → ~60 KB WebP):
+   ```
+   python scripts/optimize_images.py
+   ```
+5. `git add img/*.webp && git commit && git push` — GitHub Pages redeploys
+   in ~1 minute and the slides pick up the new backgrounds automatically.
+   You can also commit the source PNGs if you want to keep them as editing
+   masters, but the site itself only needs the WebP files.
