@@ -69,8 +69,7 @@ text overlay. No text, no logos, no visible human faces. Ultra-detailed, 4K.
 > Close-up still life of a Baroque painter's wooden palette covered in
 > rich oil colors of rose, cream and burgundy, a fine sable brush resting
 > on it, an open golden locket beside it revealing an indistinct romantic
-> portrait miniature, warm afternoon sunlight falling from a high church
-> window, reverent painterly mood, dust motes in light beam.
+> portrait miniature
 
 ### 07 — Act II · `07-act2.png`
 > An opulent Roman palazzo study at night by candlelight, heavy burgundy
