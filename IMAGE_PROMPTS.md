@@ -114,6 +114,33 @@ text overlay. No text, no logos, no visible human faces. Ultra-detailed, 4K.
 > intimate handwritten romance, warm cream and deep burgundy tones,
 > subtle film grain, tender closure.
 
+## Bonus — Social preview card · `preview.png` (3:4 portrait)
+
+Used as the Open Graph / Twitter image for the WhatsApp link preview. Lives
+at `img/preview.png` (source) → `img/preview.webp` (served). Aspect ratio
+**3:4 portrait**, target size 1080×1440. Must read strongly at small
+thumbnail sizes and work as a standalone thumbnail without any site context.
+
+> An intimate romantic still life at golden hour on a cream silk tablecloth:
+> two elegant vintage Bayerische Staatsoper opera tickets laid on an aged
+> parchment love letter written in flowing burgundy ink, a single dark
+> crimson rose with soft dewdrops resting diagonally across them, an antique
+> brass candlestick with a tall burning candle beside it spilling warm wax
+> pools, a small half-opened golden locket in the foreground, soft glittering
+> golden bokeh of distant chandelier crystals in the blurred background,
+> shallow focus, Renaissance oil painting aesthetic, deep chiaroscuro with a
+> single warm directional key light, rich texture, subtle film grain,
+> centered symmetrical composition with generous negative space in the upper
+> quarter, 3:4 vertical portrait, no text, no logos, no people, ultra-
+> detailed, 4K.
+
+Append the shared style block above, **but override the aspect ratio line**
+to `3:4 vertical portrait` instead of 9:16.
+
+After generating, save as `img/preview.png`, run `python scripts/optimize_images.py`,
+and commit `img/preview.webp`. The HTML `og:image` tag already references the
+final `.webp` location.
+
 ## Workflow
 
 1. Generate each image with the shared style block appended.
