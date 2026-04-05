@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pentru Irina ♥ Tosca</title>
+<meta name="description" content="O seară magică la München — Tosca de Puccini la Bayerische Staatsoper, 6 aprilie 2026. Pentru Irina, de la Matthias.">
+
+<!-- Open Graph / WhatsApp / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ro_RO">
+<meta property="og:title" content="Pentru Irina ♥ Tosca la München">
+<meta property="og:description" content="O seară magică la Bayerische Staatsoper — Tosca de Puccini, 6 aprilie 2026. Cu dragoste, Matthias.">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/4/40/Tosca_%281899%29.jpg">
+<meta property="og:image:alt" content="Afișul original al operei Tosca de Adolfo Hohenstein, 1899">
+<meta property="og:image:width" content="1270">
+<meta property="og:image:height" content="2652">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pentru Irina ♥ Tosca la München">
+<meta name="twitter:description" content="O seară magică la Bayerische Staatsoper — Tosca de Puccini, 6 aprilie 2026.">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/4/40/Tosca_%281899%29.jpg">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cream: #FDF6EC;
+    --cream-dark: #F5EBD8;
+    --burgundy: #7A2332;
+    --burgundy-light: #9E3A4C;
+    --gold: #C8A55C;
+    --gold-light: #D4B87A;
+    --charcoal: #2C2C2C;
+    --text: #3A3028;
+    --text-light: #6B5E52;
+    --rose: #C4727F;
+    --rose-soft: #E8B4BC;
+  }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(200,165,92,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-dedication {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(14px, 2.5vw, 18px);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 0.3s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 10vw, 100px);
+    font-weight: 700;
+    color: var(--burgundy);
+    line-height: 1;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 0.6s forwards;
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 3vw, 26px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 0.9s forwards;
+  }
+
+  .hero-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 1.2s forwards;
+  }
+
+  .hero-detail span {
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    color: var(--text-light);
+    letter-spacing: 1px;
+  }
+
+  .hero-detail .venue {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--burgundy);
+    letter-spacing: 2px;
+  }
+
+  .hero-heart {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: fadeUp 1.2s ease 1.6s forwards, pulse 2s ease-in-out 2.8s infinite;
+  }
+
+  .hero-heart svg {
+    width: 28px;
+    height: 28px;
+    fill: var(--rose);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: fadeUp 1.2s ease 2s forwards;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  /* ─── FEED (Instagram-style cards) ─── */
+  .feed {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0 16px 80px;
+  }
+
+  .card {
+    margin-bottom: 48px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Section divider */
+  .divider {
+    text-align: center;
+    padding: 48px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .divider.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .divider-line {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .divider-line::before,
+  .divider-line::after {
+    content: '';
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .divider-icon {
+    font-size: 18px;
+    color: var(--gold);
+  }
+
+  .divider-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(12px, 2vw, 14px);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 12px;
+  }
+
+  /* Card header (like Instagram post header) */
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 4px;
+  }
+
+  .card-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .card-avatar.act1 { background: linear-gradient(135deg, var(--gold), var(--gold-light)); }
+  .card-avatar.act2 { background: linear-gradient(135deg, var(--burgundy), var(--burgundy-light)); }
+  .card-avatar.act3 { background: linear-gradient(135deg, var(--charcoal), #555); }
+  .card-avatar.highlight { background: linear-gradient(135deg, var(--rose), var(--rose-soft)); }
+  .card-avatar.info { background: linear-gradient(135deg, var(--gold), var(--cream-dark)); }
+
+  .card-meta {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-label {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .card-sublabel {
+    font-family: 'Lora', serif;
+    font-size: 12px;
+    color: var(--text-light);
+  }
+
+  /* Card image area */
+  .card-visual {
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-gradient {
+    padding: 40px 28px;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .card-gradient.act1-bg {
+    background: linear-gradient(145deg, #F5EBD8 0%, #EDE0C8 40%, #D4C4A4 100%);
+    border: 1px solid rgba(200,165,92,0.2);
+  }
+
+  .card-gradient.act2-bg {
+    background: linear-gradient(145deg, #3A1520 0%, #5C2030 40%, #7A2332 100%);
+    color: #F5EBD8;
+  }
+
+  .card-gradient.act3-bg {
+    background: linear-gradient(145deg, #1C1E2A 0%, #2A2D3E 40%, #3C3F52 100%);
+    color: #F5EBD8;
+  }
+
+  .card-gradient.highlight-bg {
+    background: linear-gradient(145deg, #F9EEF0 0%, #F0D8DC 40%, #E8BFC6 100%);
+    border: 1px solid rgba(196,114,127,0.15);
+  }
+
+  .card-gradient.dinner-bg {
+    background: linear-gradient(145deg, #FDF6EC 0%, #F5E6CF 40%, #EDD9B5 100%);
+    border: 1px solid rgba(200,165,92,0.3);
+  }
+
+  .card-gradient h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 5vw, 30px);
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .card-gradient .act2-bg h3,
+  .card-gradient .act3-bg h3 {
+    color: #F5EBD8;
+  }
+
+  .card-gradient p.tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+    opacity: 0.8;
+  }
+
+  /* Card body text */
+  .card-body {
+    padding: 16px 4px;
+  }
+
+  .card-body p {
+    font-family: 'Lora', serif;
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .card-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Card actions (like Instagram like/comment bar) */
+  .card-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 4px 4px;
+  }
+
+  .card-actions svg {
+    width: 22px;
+    height: 22px;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+  }
+
+  .card-actions svg:hover {
+    color: var(--burgundy);
+    transform: scale(1.15);
+  }
+
+  .card-actions .liked svg {
+    color: var(--rose);
+    fill: var(--rose);
+  }
+
+  /* YouTube link */
+  .yt-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    padding: 10px 18px;
+    background: var(--burgundy);
+    color: var(--cream);
+    text-decoration: none;
+    border-radius: 24px;
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+  }
+
+  .yt-link:hover {
+    background: var(--burgundy-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(122,35,50,0.25);
+  }
+
+  .yt-link svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--cream);
+  }
+
+  /* Intro card */
+  .intro-card {
+    background: linear-gradient(135deg, rgba(200,165,92,0.08), rgba(122,35,50,0.05));
+    border: 1px solid rgba(200,165,92,0.15);
+    border-radius: 12px;
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  .intro-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 4vw, 26px);
+    color: var(--burgundy);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .intro-card p {
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text);
+  }
+
+  /* Dinner card */
+  .dinner-card {
+    background: linear-gradient(135deg, rgba(200,165,92,0.12), rgba(200,165,92,0.04));
+    border: 1px solid rgba(200,165,92,0.25);
+    border-radius: 12px;
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  .dinner-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--burgundy);
+    margin-bottom: 6px;
+  }
+
+  .dinner-card .restaurant-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .dinner-card p {
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-light);
+  }
+
+  .dinner-card .time-badge {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 8px 20px;
+    background: var(--burgundy);
+    color: var(--cream);
+    border-radius: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 60px 24px 80px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .footer.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .footer-heart {
+    font-size: 32px;
+    margin-bottom: 16px;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .footer p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 4vw, 24px);
+    font-style: italic;
+    color: var(--burgundy);
+    line-height: 1.6;
+  }
+
+  .footer .sign {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: var(--text-light);
+    margin-top: 20px;
+    font-style: normal;
+  }
+
+  /* Highlight quote */
+  .aria-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 4vw, 22px);
+    font-style: italic;
+    color: var(--burgundy);
+    text-align: center;
+    padding: 20px 0;
+    line-height: 1.5;
+    border-left: 3px solid var(--gold);
+    padding-left: 20px;
+    margin: 16px 0;
+    text-align: left;
+  }
+
+  /* Emoji label */
+  .emoji-label {
+    font-size: 20px;
+    margin-right: 6px;
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .feed { padding: 0 12px 60px; }
+    .card-gradient { padding: 28px 20px; min-height: 200px; }
+    .intro-card, .dinner-card { padding: 24px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero">
+  <div class="hero-dedication">Pentru Irina, de la Matthias</div>
+  <h1 class="hero-title">Tosca</h1>
+  <div class="hero-subtitle">Giacomo Puccini · Operă în trei acte</div>
+  <div class="hero-detail">
+    <span class="venue">Bayerische Staatsoper · München</span>
+    <span>Luni, 6 aprilie 2026 · ora 18:00</span>
+  </div>
+  <div class="scroll-hint">↓ derulează ↓</div>
+  <div class="hero-heart">
+    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+  </div>
+</section>
+
+<!-- ════════ FEED ════════ -->
+<div class="feed">
+
+  <!-- ─── DINNER ─── -->
+  <div class="card" data-anim>
+    <div class="card-header">
+      <div class="card-avatar info">🍷</div>
+      <div class="card-meta">
+        <span class="card-label">Înainte de spectacol</span>
+        <span class="card-sublabel">O seară care începe perfect</span>
+      </div>
+    </div>
+    <div class="dinner-card">
+      <h3>Cină la</h3>
+      <div class="restaurant-name">LUDWIG ZWEI</div>
+      <p>Ne vom bucura de o cină romantică înainte de a intra în lumea fascinantă a operei lui Puccini.</p>
+      <div class="time-badge">Ora 17:00 · Rezervare confirmată</div>
+    </div>
+  </div>
+
+  <!-- ─── INTRO ─── -->
+  <div class="divider" data-anim>
+    <div class="divider-line">
+      <span class="divider-icon">♪</span>
+    </div>
+    <div class="divider-text">Despre Operă</div>
+  </div>
+
+  <div class="card" data-anim>
+    <div class="intro-card">
+      <h2>Tosca — Un thriller pe scenă</h2>
+      <p>Tosca nu este doar o operă — este un thriller politic plin de emoție, o dramă psihologică și o poveste de dragoste tragică, toate într-una singură. Premiera a avut loc în anul 1900 la Roma și marchează unul dintre punctele culminante ale Verismului.</p>
+      <p style="margin-top: 14px;">Acțiunea se petrece la Roma, în iunie 1800. Orașul se află sub controlul represiv al Statului Papal, în timp ce trupele lui Napoleon înaintează în nordul Italiei.</p>
+    </div>
+  </div>
+
+  <!-- ─── CHARACTERS ─── -->
+  <div class="card" data-anim>
+    <div class="card-header">
+      <div class="card-avatar highlight">🎭</div>
+      <div class="card-meta">
+        <span class="card-label">Protagoniștii</span>
+        <span class="card-sublabel">Trei destine împletite</span>
+      </div>
+    </div>
+    <div class="card-visual">
+      <div class="card-gradient highlight-bg">
+        <h3 style="color:var(--burgundy)">Floria Tosca · Mario · Scarpia</h3>
+        <p class="tagline" style="color:var(--text)">Gelozie, șantaj și trădare</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>Triunghiul dramatic este format din impulsiva cântăreață <strong>Floria Tosca</strong>, iubitul ei, pictorul liberal <strong>Mario Cavaradossi</strong>, și sadicul șef al poliției, <strong>Baronul Scarpia</strong>.</p>
+      <p>Puccini folosește muzica pentru a crea o tensiune aproape cinematografică. Arbitrariul politic formează cadrul sumbru pentru o poveste despre gelozie, șantaj și trădare.</p>
+    </div>
+  </div>
+
+  <!-- ════════ ACT I ════════ -->
+  <div class="divider" data-anim>
+    <div class="divider-line">
+      <span class="divider-icon">I</span>
+    </div>
+    <div class="divider-text">Actul Întâi</div>
+  </div>
+
+  <div class="card" data-anim>
+    <div class="card-header">
+      <div class="card-avatar act1">⛪</div>
+      <div class="card-meta">
+        <span class="card-label">Actul I</span>
+        <span class="card-sublabel">Biserica Sant'Andrea della Valle</span>
+      </div>
+    </div>
+    <div class="card-visual">
+      <div class="card-gradient act1-bg">
+        <h3 style="color:var(--burgundy)">Lumină și umbre într-o catedrală</h3>
+        <p class="tagline" style="color:var(--text-light)">Unde arta întâlnește intriga</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>Deținutul politic evadat Angelotti caută refugiu într-o capelă. Prietenul său, pictorul Cavaradossi, îl ajută să se ascundă.</p>
+      <p>Tosca, iubita lui Mario, apare și reacționează imediat cu gelozie la portretul unei femei blonde pe care acesta îl pictează. După ce ea pleacă, Angelotti fuge cu ajutorul lui Mario.</p>
+      <p>Scarpia intră în biserică, găsește dovezi ale fugii și ațâță gelozia Toscăi pentru a o folosi ca instrument împotriva lui Cavaradossi.</p>
+    </div>
+  </div>
+
+  <!-- HIGHLIGHT: Recondita armonia -->
+  <div class="card" data-anim>
+    <div class="card-header">
+      <div class="card-avatar highlight">🎵</div>
+      <div class="card-meta">
+        <span class="card-label">„Recondita armonia"</span>
+        <span class="card-sublabel">Aria lui Cavaradossi · Actul I</span>
+      </div>
+    </div>
+    <div class="card-visual">
+      <div class="card-gradient highlight-bg">
+        <div class="aria-quote" style="border-color:var(--rose)">
+          „Armonie ascunsă a frumuseților diverse... singurul meu gând ești tu, Tosca, ești tu!"
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>Prima arie a lui Cavaradossi, în care compară frumusețea iubitei sale Tosca cu cea a picturii — un moment strălucitor pentru tenor.</p>
+      <a href="https://www.youtube.com/results?search_query=Pavarotti+Recondita+armonia+Tosca" target="_blank" rel="noopener" class="yt-link">
+        <svg viewBox="0 0 24 24"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 00.5 6.19 31.56 31.56 0 000 12a31.56 31.56 0 00.5 5.81 3.02 3.02 0 002.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 002.12-2.14A31.56 31.56 0 0024 12a31.56 31.56 0 00-.5-5.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+        Ascultă pe YouTube · Pavarotti
+      </a>
+    </div>
+  </div>
+
+  <!-- HIGHLIGHT: Te Deum -->
+  <div class="card" data-anim>
+    <div class="card-header">
+      <div class="card-avatar highlight">🎵</div>
+      <div class="card-meta">
+        <span class="card-label">„Te Deum"</span>
+        <span class="card-sublabel">Finalul Actului I · Scarpia & Cor</span>
+      </div>
+    </div>
+    <div class="card-visual">
+      <div class="card-gradient act2-bg">
+        <div class="aria-quote" style="border-color:var(--gold);color:var(--cream-dark)">
+          „Tosca, mi fai dimenticare Iddio!" — Tosca, mă faci să-L uit pe Dumnezeu!
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>Unul dintre cele mai puternice momente din istoria operei. În timp ce corul cântă o rugăciune de mulțumire, Scarpia își exprimă cu voce tare fanteziile întunecate de răzbunare și poftă.</p>
+      <a href="https://www.youtube.com/results?search_query=Tosca+Te+Deum+Puccini+opera+finale+act+1" target="_blank" rel="noopener" class="yt-link">
+        <svg viewBox="0 0 24 24"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 00.5 6.19 31.56 31.56 0 000 12a31.56 31.56 0 00.5 5.81 3.02 3.02 0 002.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 002.12-2.14A31.56 31.56 0 0024 12a31.56 31.56 0 00-.5-5.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+        Ascultă pe YouTube · Te Deum
+      </a>
+    </div>
+  </div>
+
+  <!-- ════════ ACT II ════════ -->
+  <div class="divider" data-anim>
+    <div class="divider-line">
+      <span class="divider-icon">II</span>
+    </div>
+    <div class="divider-text">Actul Al Doilea</div>
+  </div>
+
+  <div class="card" data-anim>
+    <div class="card-header">
+      <div class="card-avatar act2">🏛️</div>
+      <div class="card-meta">
+        <span class="card-label">Actul II</span>
+        <span class="card-sublabel">Palazzo Farnese — Sediul lui Scarpia</span>
+      </div>
+    </div>
+    <div class="card-visual">
+      <div class="card-gradient act2-bg">
+        <h3>Tortură, șantaj și curaj</h3>
+        <p class="tagline">Cel mai intens act din operă</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>Cavaradossi a fost arestat, dar tace cu privire la ascunzătoarea lui Angelotti. Scarpia îl torturează în camera alăturată, astfel încât Tosca să-i poată auzi strigătele.</p>
+      <p>Pentru a-l salva pe Mario, ea trădează ascunzătoarea. Scarpia îi propune un târg: dacă i se dăruiește, va mima execuția lui Cavaradossi.</p>
+      <p>Tosca pare să accepte, dar, în timp ce Scarpia scrie scrisoarea de liberă trecere, <strong>ea îl înjunghie mortal</strong>.</p>
+    </div>
+  </div>
+
+  <!-- HIGHLIGHT: Vissi d'arte -->
+  <div class="card" data-anim>
+    <div class="card-header">
+      <div class="card-avatar highlight">🎵</div>
+      <div class="card-meta">
+        <span class="card-label">„Vissi d'arte"</span>
+        <span class="card-sublabel">Aria Toscăi · Actul II</span>
+      </div>
+    </div>
+    <div class="card-visual">
+      <div class="card-gradient highlight-bg">
+        <div class="aria-quote" style="border-color:var(--rose)">
+          „Am trăit pentru artă, am trăit pentru iubire, n-am făcut niciodată rău nimănui..."
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>În mijlocul șantajului crud, Tosca se oprește și îl întreabă pe Dumnezeu de ce îi provoacă atâta suferință ei, care a trăit doar pentru artă și iubire. Este poate cea mai celebră arie de soprană din operă.</p>
+      <a href="https://www.youtube.com/results?search_query=Maria+Callas+Vissi+d%27arte+Tosca" target="_blank" rel="noopener" class="yt-link">
+        <svg viewBox="0 0 24 24"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 00.5 6.19 31.56 31.56 0 000 12a31.56 31.56 0 00.5 5.81 3.02 3.02 0 002.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 002.12-2.14A31.56 31.56 0 0024 12a31.56 31.56 0 00-.5-5.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+        Ascultă pe YouTube · Maria Callas
+      </a>
+    </div>
+  </div>
+
+  <!-- ════════ ACT III ════════ -->
+  <div class="divider" data-anim>
+    <div class="divider-line">
+      <span class="divider-icon">III</span>
+    </div>
+    <div class="divider-text">Actul Al Treilea</div>
+  </div>
+
+  <div class="card" data-anim>
+    <div class="card-header">
+      <div class="card-avatar act3">🌅</div>
+      <div class="card-meta">
+        <span class="card-label">Actul III</span>
+        <span class="card-sublabel">Castelul Sant'Angelo · Zorii zilei</span>
+      </div>
+    </div>
+    <div class="card-visual">
+      <div class="card-gradient act3-bg">
+        <h3>Ultimul act — Zori tragici</h3>
+        <p class="tagline">Când speranța se transformă în deznădejde</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>Zori de zi peste Roma. Cavaradossi își așteaptă execuția și scrie o scrisoare de adio.</p>
+      <p>Tosca apare și îi explică planul „execuției simulate". Însă Scarpia a înșelat-o: soldații trag cu muniție reală. <strong>Mario moare.</strong></p>
+      <p>Când oamenii lui Scarpia vor să o aresteze pe Tosca, ea se aruncă de pe zidurile Castelului Sant'Angelo în gol.</p>
+    </div>
+  </div>
+
+  <!-- HIGHLIGHT: E lucevan le stelle -->
+  <div class="card" data-anim>
+    <div class="card-header">
+      <div class="card-avatar highlight">🎵</div>
+      <div class="card-meta">
+        <span class="card-label">„E lucevan le stelle"</span>
+        <span class="card-sublabel">Aria lui Cavaradossi · Actul III</span>
+      </div>
+    </div>
+    <div class="card-visual">
+      <div class="card-gradient act3-bg">
+        <div class="aria-quote" style="border-color:var(--gold-light);color:var(--cream-dark)">
+          „Și stelele străluceau... și n-am iubit niciodată viața atât de mult!"
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>Rămas-bunul melancolic al lui Cavaradossi. Melodia clarinetului de la început este legendară și surprinde perfect deznădejdea absolută. Una dintre cele mai emoționante arii din întregul repertoriu de operă.</p>
+      <a href="https://www.youtube.com/results?search_query=Pavarotti+E+lucevan+le+stelle+Tosca" target="_blank" rel="noopener" class="yt-link">
+        <svg viewBox="0 0 24 24"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 00.5 6.19 31.56 31.56 0 000 12a31.56 31.56 0 00.5 5.81 3.02 3.02 0 002.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 002.12-2.14A31.56 31.56 0 0024 12a31.56 31.56 0 00-.5-5.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+        Ascultă pe YouTube · Pavarotti
+      </a>
+    </div>
+  </div>
+
+  <!-- ─── FINALE NOTE ─── -->
+  <div class="divider" data-anim>
+    <div class="divider-line">
+      <span class="divider-icon">✦</span>
+    </div>
+    <div class="divider-text">Epilog</div>
+  </div>
+
+  <div class="card" data-anim>
+    <div class="intro-card" style="border-color: rgba(122,35,50,0.15); background: linear-gradient(135deg, rgba(122,35,50,0.05), rgba(196,114,127,0.05));">
+      <h2>Un spectacol verist!</h2>
+      <p>Tosca este considerată una dintre cele mai „sângeroase" opere. La final, aproape toate personajele principale mor: Angelotti (sinucidere), Scarpia (înjunghiat), Cavaradossi (împușcat) și Tosca (săritură în gol).</p>
+      <p style="margin-top:14px; font-style:italic; color:var(--text-light);">Dar pentru noi — o seară magică la München, plină de muzică, emoție și dragoste.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ════════ FOOTER ════════ -->
+<section class="footer" data-anim>
+  <div class="footer-heart">♥</div>
+  <p>Te iubesc, Irina.</p>
+  <div class="sign">Cu dragoste, Matthias</div>
+</section>
+
+<script>
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('[data-anim]').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

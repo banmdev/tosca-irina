@@ -1,0 +1,24 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Project
+
+Single-file static HTML gift page: `index.html`. A personal, romantic scroll-feed page (in Romanian) commemorating a visit to Puccini's *Tosca* at the Bayerische Staatsoper in München on 6 April 2026. From Matthias, for Irina.
+
+No build system, no dependencies installed locally, no tests. Open the file directly in a browser to preview.
+
+Deployed via **GitHub Pages** from the `main` branch (root). Any push to `main` publishes within ~1 minute. The file is named `index.html` so the Pages URL resolves to the root without a path suffix. Open Graph / Twitter Card tags in `<head>` drive the WhatsApp/Facebook/iMessage link preview and reference the public-domain 1899 Hohenstein Tosca poster on Wikimedia Commons as `og:image` — if that URL ever breaks, swap it rather than removing the tags.
+
+## Architecture
+
+The entire page is one self-contained HTML document:
+
+- **`<style>` block** (lines ~8–526): all CSS. Design tokens are defined as CSS custom properties in `:root` (`--cream`, `--burgundy`, `--gold`, `--rose`, etc.) — reuse these variables instead of hard-coding colors so the palette stays consistent. Layout is a vertical "feed" of `.card` blocks separated by `.divider` elements, with a full-viewport `.hero` section at the top and a `.footer` at the bottom.
+- **`<body>`** (lines ~528–812): HERO → FEED (dinner card, opera intro, characters, act summaries, aria highlights with YouTube links) → Epilog → FOOTER. Cards follow a consistent `.card > .card-header (.card-avatar + .card-meta) + .card-body` pattern.
+- **`<script>`** (lines ~814–825): a single `IntersectionObserver` that adds a `visible` class to any element with the `data-anim` attribute when it scrolls into view. To make a new element animate on scroll, add `data-anim` to it.
+
+External resources: Google Fonts (Playfair Display, Cormorant Garamond, Lora) loaded via `<link>`, and inline SVG icons. YouTube links open in new tabs via `target="_blank" rel="noopener"`.
+
+Content is in Romanian — preserve language and tone when editing copy.
+
