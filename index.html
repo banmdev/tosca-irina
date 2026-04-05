@@ -780,11 +780,27 @@
 
   slides.forEach(s => observer.observe(s));
 
-  // Click dot → scroll to slide
+  // Click dot → scroll to slide.
+  // Workaround for a Chromium bug where `scroll-snap-type: y mandatory`
+  // reverts programmatic smooth scrolls that cross multiple snap points:
+  // temporarily disable snap, scroll, then restore it.
+  const htmlEl = document.documentElement;
+  let snapRestoreTimer = null;
+
   dots.forEach(dot => {
-    dot.addEventListener('click', () => {
+    dot.addEventListener('click', (e) => {
+      e.preventDefault();
       const target = byId[dot.dataset.target];
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (!target) return;
+
+      clearTimeout(snapRestoreTimer);
+      htmlEl.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Update active dot immediately so the UI feels responsive
+      dots.forEach(d => d.classList.toggle('active', d === dot));
+      snapRestoreTimer = setTimeout(() => {
+        htmlEl.style.scrollSnapType = '';
+      }, 900);
     });
   });
 </script>
