@@ -60,7 +60,6 @@
      Inner wrapper scrolls internally if content exceeds viewport. */
   .slide {
     scroll-snap-align: start;
-    scroll-snap-stop: always;
     height: 100svh;
     min-height: 560px;
     width: 100%;
@@ -437,11 +436,12 @@
     position: relative;
   }
 
-  /* Larger invisible hit area for easier tapping */
+  /* Larger invisible hit area for easier tapping — limited to
+     half the gap so adjacent dots don't intercept each other's clicks */
   .nav-dot::after {
     content: '';
     position: absolute;
-    inset: -8px;
+    inset: -4px -8px;
   }
 
   .nav-dot:hover {
@@ -505,18 +505,18 @@
 
 <!-- ════════ NAV DOTS ════════ -->
 <nav class="nav-dots" aria-label="Navigare">
-  <button class="nav-dot" data-target="s-hero"   data-label="Pentru Irina"       aria-label="Pentru Irina"></button>
-  <button class="nav-dot" data-target="s-dinner" data-label="Cină · Ludwig Zwei" aria-label="Cină"></button>
-  <button class="nav-dot" data-target="s-intro"  data-label="Despre Operă"       aria-label="Despre Operă"></button>
-  <button class="nav-dot" data-target="s-chars"  data-label="Protagoniștii"      aria-label="Protagoniștii"></button>
-  <button class="nav-dot" data-target="s-act1"   data-label="Actul I"            aria-label="Actul I"></button>
-  <button class="nav-dot" data-target="s-aria1"  data-label="Recondita armonia"  aria-label="Recondita armonia"></button>
-  <button class="nav-dot" data-target="s-act2"   data-label="Actul II"           aria-label="Actul II"></button>
-  <button class="nav-dot" data-target="s-aria2"  data-label="Vissi d'arte"       aria-label="Vissi d'arte"></button>
-  <button class="nav-dot" data-target="s-act3"   data-label="Actul III"          aria-label="Actul III"></button>
-  <button class="nav-dot" data-target="s-aria3"  data-label="E lucevan le stelle" aria-label="E lucevan le stelle"></button>
-  <button class="nav-dot" data-target="s-epilog" data-label="Epilog"             aria-label="Epilog"></button>
-  <button class="nav-dot" data-target="s-footer" data-label="Cu dragoste"        aria-label="Cu dragoste"></button>
+  <button type="button" class="nav-dot" data-target="s-hero"   data-label="Pentru Irina"       aria-label="Pentru Irina"></button>
+  <button type="button" class="nav-dot" data-target="s-dinner" data-label="Cină · Ludwig Zwei" aria-label="Cină"></button>
+  <button type="button" class="nav-dot" data-target="s-intro"  data-label="Despre Operă"       aria-label="Despre Operă"></button>
+  <button type="button" class="nav-dot" data-target="s-chars"  data-label="Protagoniștii"      aria-label="Protagoniștii"></button>
+  <button type="button" class="nav-dot" data-target="s-act1"   data-label="Actul I"            aria-label="Actul I"></button>
+  <button type="button" class="nav-dot" data-target="s-aria1"  data-label="Recondita armonia"  aria-label="Recondita armonia"></button>
+  <button type="button" class="nav-dot" data-target="s-act2"   data-label="Actul II"           aria-label="Actul II"></button>
+  <button type="button" class="nav-dot" data-target="s-aria2"  data-label="Vissi d'arte"       aria-label="Vissi d'arte"></button>
+  <button type="button" class="nav-dot" data-target="s-act3"   data-label="Actul III"          aria-label="Actul III"></button>
+  <button type="button" class="nav-dot" data-target="s-aria3"  data-label="E lucevan le stelle" aria-label="E lucevan le stelle"></button>
+  <button type="button" class="nav-dot" data-target="s-epilog" data-label="Epilog"             aria-label="Epilog"></button>
+  <button type="button" class="nav-dot" data-target="s-footer" data-label="Cu dragoste"        aria-label="Cu dragoste"></button>
 </nav>
 
 <!-- ════════ 1. HERO ════════ -->
