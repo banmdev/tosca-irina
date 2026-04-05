@@ -34,18 +34,21 @@ def optimize(src: pathlib.Path) -> pathlib.Path:
 def build_social_preview(src: pathlib.Path) -> pathlib.Path:
     """Special-case for the WhatsApp / Open Graph preview image.
 
-    WhatsApp's link-preview crawler has known issues decoding WebP and also
-    prefers larger images (~1200+ on the long side) before it will render a
-    big portrait card. So for `preview.png` we:
-      - upscale 2x via Lanczos (Nano Banana native is ~896x1200)
-      - export as high-quality JPEG (fully crawler-compatible)
+    WhatsApp's link-preview crawler has known quirks:
+      - WebP is unreliable — many client versions silently drop it
+      - Files larger than ~300 KB are often silently skipped
+      - Very small images (< ~500 px long side) fall back to tiny inline thumb
+    So for `preview.png` we:
+      - upscale 1.5x via Lanczos (Nano Banana native is ~896x1200,
+        scaled up to ~1344x1800 — comfortably over WhatsApp's minimum)
+      - export as baseline JPEG at quality 85 to stay under ~300 KB
     """
     dst = src.with_suffix(".jpg")
     with Image.open(src) as img:
         img = img.convert("RGB")
         w, h = img.size
-        img = img.resize((w * 2, h * 2), Image.LANCZOS)
-        img.save(dst, "JPEG", quality=92, optimize=True, progressive=True)
+        img = img.resize((round(w * 1.5), round(h * 1.5)), Image.LANCZOS)
+        img.save(dst, "JPEG", quality=85, optimize=True, progressive=False)
     return dst
 
 
@@ -54,10 +57,9 @@ def main() -> None:
         print(f"No img/ directory at {IMG_DIR}")
         return
 
-    sources = sorted(
-        p for p in IMG_DIR.iterdir()
-        if p.suffix.lower() in {".png", ".jpg", ".jpeg"}
-    )
+    # Only PNG files are treated as inputs. JPG/WebP files in img/ are
+    # considered outputs of this script and must not be re-processed.
+    sources = sorted(p for p in IMG_DIR.iterdir() if p.suffix.lower() == ".png")
     if not sources:
         print("No PNG/JPG files in img/ to optimize")
         return
